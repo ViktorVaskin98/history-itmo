@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Александр Невский: Россов усердный защитник</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark blue-grey for main text */
+            --secondary-color: #3498db; /* Light blue for accents */
+            --accent-color: #f39c12; /* Golden orange for timeline markers */
+            --background-color: #f8f8f8; /* Light grey background */
+            --card-background: #ffffff; /* White card background */
+            --light-grey-border: #e0e0e0; /* Light grey for borders */
+            --section-bg-light: #ecf0f1; /* Lighter background for specific sections */
+            --text-light: #7f8c8d; /* Lighter grey for secondary text */
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--primary-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background-color: var(--section-bg-light);
+            border-bottom: 2px solid var(--light-grey-border);
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .header h2 {
+            font-size: 1.2em;
+            color: var(--text-light);
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        .header p {
+            font-style: italic;
+            margin-top: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--primary-color);
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Intro Strategy Section */
+        .strategy-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .strategy-section > h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .strategy-section > h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .strategy-cards {
+            display: flex;
+            justify-content: space-around;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .strategy-card {
+            flex: 1;
+            background-color: var(--section-bg-light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: left;
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .strategy-card h3 {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .strategy-card h3 svg {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        .strategy-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .strategy-card ul li {
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 0.95em;
+        }
+
+        .strategy-card strong {
+            display: block;
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: var(--secondary-color);
+            border-top: 1px dashed var(--light-grey-border);
+            padding-top: 15px;
+        }
+
+        .strategy-type {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        /* Main Timeline */
+        .timeline-section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: var(--primary-color);
+            margin: 60px 0 40px;
+            position: relative;
+        }
+
+        .timeline-section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            padding: 20px 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        .timeline-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--light-grey-border);
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 0;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+            text-align: left;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background-color: var(--accent-color);
+            border: 4px solid var(--secondary-color);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            /* Star icon within circle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em; /* Adjust star size */
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 0 4px var(--card-background); /* White ring to separate from line */
+        }
+        .timeline-item::before {
+            content: '★'; /* Unicode star */
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -17px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -17px;
+        }
+
+        .timeline-card {
+            background: var(--card-background);
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid var(--secondary-color);
+            opacity: 0; /* Hidden by default for JS animation */
+            transform: translateY(20px);
+        }
+        .timeline-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .timeline-card h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .timeline-card p {
+            margin: 5px 0;
+            font-size: 0.95em;
+            color: var(--primary-color);
+        }
+        
+        .timeline-card .date {
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        /* Footer Legacy Section */
+        .legacy-section {
+            background-color: var(--section-bg-light);
+            padding: 50px 20px;
+            margin-top: 60px;
+            text-align: center;
+            border-top: 2px solid var(--light-grey-border);
+        }
+
+        .legacy-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .legacy-section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .legacy-cards {
+            display: flex;
+            justify-content: space-around;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .legacy-card {
+            flex: 1;
+            min-width: 280px; /* Minimum width for cards before wrapping */
+            background-color: var(--card-background);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        .legacy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .legacy-card h3 {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .legacy-card p {
+            font-size: 0.9em;
+            color: var(--text-light);
+        }
+        .legacy-card .icon {
+            font-size: 2.5em;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+            .header p {
+                font-size: 0.85em;
+            }
+
+            .strategy-cards {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .strategy-card {
+                padding: 20px;
+            }
+
+            .timeline-wrapper::before {
+                left: 30px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+                text-align: left;
+            }
+            .timeline-item:nth-child(odd)::before,
+            .timeline-item:nth-child(even)::before {
+                left: 17px;
+            }
+
+            .legacy-cards {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .legacy-card {
+                min-width: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.6em;
+            }
+            .strategy-card h3 {
+                font-size: 1.2em;
+            }
+            .timeline-section-title {
+                font-size: 1.6em;
+            }
+            .timeline-card h3 {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Александр Невский</h1>
+            <h2>Россов усердный защитник (ок. 1221 – 1263)</h2>
+            <p>
+                «Идите и скажите всем в чужих краях, что Русь жива. Пусть без страха жалуют к нам в гости,
+                но если кто с мечом к нам войдёт, тот от меча и погибнет. На том стоит и стоять будет русская земля».
+            </p>
+        </div>
+
+        <!-- Strategy Section -->
+        <section class="strategy-section">
+            <h2>Русь XIII века: Между молотом и наковальней</h2>
+            <div class="strategy-cards">
+                <div class="strategy-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trello"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="9"></rect><rect x="14" y="7" width="3" height="5"></rect></svg>
+                        Угроза с Востока: Монголы
+                    </h3>
+                    <ul>
+                        <li>1223 г. - Битва на Калке: Первое столкновение и поражение русских князей из-за разобщенности.</li>
+                        <li>1237-1240 гг. - Нашествие Батыя: Разорение крупнейших городов, установление зависимости от Золотой Орды.</li>
+                    </ul>
+                    <p>
+                        <strong>Политика Александра:</strong> Он осознавал, что открытое военное противостояние с Ордой губительно для ослабленной Руси. Выбрал путь дипломатии, чтобы сохранить народ, веру и накопить силы.
+                    </p>
+                    <span class="strategy-type">СТРАТЕГИЯ: ДИПЛОМАТ</span>
+                </div>
+                <div class="strategy-card">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        Угроза с Запада: Крестоносцы
+                    </h3>
+                    <ul>
+                        <li>Начало XIII в.: Папа Римский объявляет «северные крестовые походы» с целью насаждения католичества.</li>
+                        <li>1237 г.: Объединение Тевтонского ордена и Ордена меченосцев создает мощную военную угрозу на границах.</li>
+                    </ul>
+                    <p>
+                        <strong>Политика Александра:</strong> Решительное вооруженное сопротивление. Князь видел в западной экспансии угрозу не только землям, но и самому существованию православной веры и русской культуры.
+                    </p>
+                    <span class="strategy-type">СТРАТЕГИЯ: ВОИН</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Timeline -->
+        <section class="timeline-section">
+            <h2 class="timeline-section-title">Основные этапы жизни</h2>
+
+            <div class="timeline-wrapper">
+                <!-- Ранние годы -->
+                <h3 class="timeline-section-title" style="font-size: 1.5em; margin-top: 20px; margin-bottom: 20px;">Ранние годы и начало княжения</h3>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">ок. 1221 года</span>
+                        <h3>Рождение</h3>
+                        <p>В Переяславле-Залесском в семье князя Ярослава Всеволодовича и княгини Феодосии рождается сын Александр.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">Около 1226 года</span>
+                        <h3>Княжеский постриг</h3>
+                        <p>Александр вместе со старшим братом Федором проходит обряд посвящения в воины в Спасо-Преображенском соборе.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1228 год</span>
+                        <h3>Первое наместничество</h3>
+                        <p>Отец оставляет семилетнего Александра и его брата наместниками в Новгороде. Их правление совпадает со страшным голодом.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1233 год</span>
+                        <h3>Статус наследника</h3>
+                        <p>Внезапно умирает старший брат Федор. 12-летний Александр становится главным наследником своего отца.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1234 год</span>
+                        <h3>Первое боевое крещение</h3>
+                        <p>Участвует в походе отца на немецких рыцарей и в битве на реке Омовже (Эмбах), где русские войска одерживают победу.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1236 год</span>
+                        <h3>Начало самостоятельного правления</h3>
+                        <p>В возрасте 15 лет Александр становится полноправным князем Новгородским. Он укрепляет западные границы и строит крепости.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">Декабрь 1237 года</span>
+                        <h3>Начало Батыева нашествия</h3>
+                        <p>Монголо-татары вторгаются в пределы Руси и стирают с лица земли Рязань. Этот год знаменует начало тяжелейшего периода для Руси.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1239 год</span>
+                        <h3>Женитьба и укрепление границ</h3>
+                        <p>Александр вступает в брак с дочерью полоцкого князя Брячислава, укрепляя союз. В том же году строит пограничные крепости по реке Шелони.</p>
+                    </div>
+                </div>
+
+                <!-- Великие битвы -->
+                <h3 class="timeline-section-title" style="font-size: 1.5em; margin-top: 40px; margin-bottom: 20px;">Великие битвы</h3>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">15 июля 1240 года</span>
+                        <h3>Невская битва</h3>
+                        <p>
+                            Стремительным ударом Александр Ярославич разбивает шведское войско на реке Неве, предотвратив их попытку закрепиться на русских землях. За эту победу он получил прозвище «Невский». Битва предотвратила угрозу шведского вторжения с севера и захвата побережья Невы, обеспечив безопасность границ в тяжелейших условиях монгольского нашествия на Русь.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">Зима 1240-1241 годов</span>
+                        <h3>Изгнание из Новгорода</h3>
+                        <p>Из-за конфликта с новгородскими боярами Александр вынужден покинуть город и уехать с семьей в Переяславль-Залесский.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1241 год</span>
+                        <h3>Возвращение в Новгород и освобождение Копорья</h3>
+                        <p>Перед лицом немецкой угрозы новгородцы просят Александра вернуться. Он штурмом берет и разрушает крепость Копорье, построенную рыцарями.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">Март 1242 года</span>
+                        <h3>Освобождение Пскова</h3>
+                        <p>Войско под командованием Александра изгоняет рыцарский гарнизон из Пскова и его окрестностей.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">5 апреля 1242 года</span>
+                        <h3>Ледовое побоище</h3>
+                        <p>На льду Чудского озера происходит решающее сражение, в котором Александр Невский полностью разгромил главные силы Ливонского ордена, остановив его экспансию на восток. Победа обеспечила западные границы Руси.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1242 год</span>
+                        <h3>Заключение мира с Орденом</h3>
+                        <p>После поражения Ливонский орден присылает послов с просьбой о мире и отказывается от всех своих завоеваний на русской земле.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1245 год</span>
+                        <h3>Разгром литовского войска</h3>
+                        <p>Александр одерживает крупную победу над литовцами, вторгшимися в русские пределы в районе Торжка, продолжая обеспечивать безопасность западных рубежей.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1246 год</span>
+                        <h3>Смерть отца Ярослава Всеволодовича</h3>
+                        <p>Великий князь Ярослав Всеволодович, отец Александра, вызван в столицу Монгольской империи Каракорум и там отравлен, что открывает новый этап в борьбе за власть на Руси.</p>
+                    </div>
+                </div>
+
+                <!-- Великое княжение и дипломатия -->
+                <h3 class="timeline-section-title" style="font-size: 1.5em; margin-top: 40px; margin-bottom: 20px;">Великое княжение и дипломатия</h3>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1247 год</span>
+                        <h3>Первая поездка в Орду и Каракорум</h3>
+                        <p>Вместе с братом Андреем отправляется в ставку Батыя, а оттуда — в Каракорум для подтверждения прав на княжение, что закладывает основы его дипломатической стратегии.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1248 год</span>
+                        <h3>Посольство от Папы Римского</h3>
+                        <p>Получает послание от папы Иннокентия IV с предложением принять католичество в обмен на помощь в борьбе с Ордой.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1249 год</span>
+                        <h3>Отказ Папе и возвращение из Орды</h3>
+                        <p>Александр Невский в вежливой, но твердой форме отвергает предложение папы, сохраняя верность православию. Получает ярлык на разоренный Киев и "всю Русскую землю".</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1252 год</span>
+                        <h3>Неврюева рать и получение ярлыка на великое княжение</h3>
+                        <p>Брат Андрей вступает в конфликт с Ордой и бежит. Александр едет в Орду и получает ярлык на великое княжение Владимирское, становясь главным князем на Руси.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1256 год</span>
+                        <h3>Поход в финские земли</h3>
+                        <p>Возглавляет превентивный поход в землю финского племени емь (Тавастия), чтобы помешать шведам строить там крепости и закрепиться у границ Руси.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1257 год</span>
+                        <h3>Монгольская перепись в Новгороде</h3>
+                        <p>Приезжает в Новгород с ордынскими чиновниками для проведения переписи населения ("числа") с целью обложения данью.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1259 год</span>
+                        <h3>Усмирение Новгорода</h3>
+                        <p>В Новгороде вспыхивает восстание против переписи. Александр жесткими мерами заставляет город подчиниться, тем самым спасая его от карательного похода монголов.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1262 год</span>
+                        <h3>Восстания против сборщиков дани и последняя поездка в Орду</h3>
+                        <p>В городах Северо-Восточной Руси вспыхивают народные восстания. Александр отправляется в свою последнюю дипломатическую миссию к хану Берке, чтобы предотвратить карательный поход.</p>
+                    </div>
+                </div>
+
+                <!-- Последние годы и кончина -->
+                <h3 class="timeline-section-title" style="font-size: 1.5em; margin-top: 40px; margin-bottom: 20px;">Последние годы и кончина</h3>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">1262-1263 годы</span>
+                        <h3>Переговоры в Орде и "отмолил людей"</h3>
+                        <p>Александр проводит в ставке хана почти год, ведя сложные переговоры. Ему удается отговорить хана от посылки карательного войска и освободить русских воинов от обязанности участвовать в монгольских походах.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">14 ноября 1263 года</span>
+                        <h3>Принятие схимы и смерть</h3>
+                        <p>Чувствуя приближение смерти, в Городце на Волге Александр принимает высший монашеский постриг (схиму) с именем Алексий и в тот же день умирает.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-card">
+                        <span class="date">24 ноября 1263 года</span>
+                        <h3>Погребение</h3>
+                        <p>Тело князя перевозят во Владимир и с великими почестями хоронят в соборной церкви Рождественского монастыря.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legacy Section -->
+        <section class="legacy-section">
+            <h2>Вечная Память Защитнику Руси</h2>
+            <div class="legacy-cards">
+                <div class="legacy-card">
+                    <div class="icon">☦︎</div>
+                    <h3>Канонизация</h3>
+                    <p>В 1547 году Александр Невский был причислен Русской православной церковью к лику святых за его заслуги в защите православной веры.</p>
+                </div>
+                <div class="legacy-card">
+                    <div class="icon">👑</div>
+                    <h3>Эпоха Петра I</h3>
+                    <p>Петр I видел в Невском своего предшественника в борьбе за выход к Балтике. В 1724 году он перенес мощи князя в новую столицу, Санкт-Петербург, в Александро-Невскую лавру.</p>
+                </div>
+                <div class="legacy-card">
+                    <div class="icon">🎖️</div>
+                    <h3>Современная память</h3>
+                    <p>Имя Александра Невского — символ воинской доблести и патриотизма. Памятники, храмы и ордена носят его имя, а его образ вдохновляет новые поколения защитников Отечества.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.timeline-card, .strategy-card, .legacy-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+
+</body>
+</html>
